@@ -1,0 +1,12 @@
+.modal.show .modal-dialog {
+  max-width: 90%;
+}
+
+.container-tables {
+  overflow: auto;
+}
+
+.container-table {
+  height: 350px;
+  width: 800px;
+}

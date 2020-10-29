@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./css/index.css">
+  <link rel="shortcut icon" href="./img/sound-waves.png" type="image/x-icon">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
+    integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+    integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx"
+    crossorigin="anonymous"></script>
+  <title>Simulación modulaciones analógicas</title>
+</head>
+
+<body class="app">
+  <header class="centered-items">
+    <h1>Simulación modulaciones analógicas</h1>
+  </header>
+  <main>
+    <nav class="centered-items">
+      <div class="container-routes">
+        <div id="item-route-am" class="item-route active centered-items"><span>Modulación AM</span></div>
+        <div id="item-route-fm" class="item-route centered-items"><span>Modulación FM</span></div>
+        <div id="item-route-pm" class="item-route centered-items"><span>Modulación PM</span></div>
+      </div>
+    </nav>
+
+    <section class="view centered-items" id="modulation-AM-Page">
+      <div class="form">
+        <form class="centered-items">
+          <div class="form-group">
+            <label for="vP">Valor pico señal moduladora</label>
+            <input autocomplete="off" type="text" class="form-control" id="vP-AM" placeholder="Señal moduladora">
+          </div>
+
+          <div class="form-group">
+            <label for="fP">Frecuencia señal moduladora</label>
+            <input autocomplete="off" type="text" class="form-control" id="fP-AM" placeholder="Señal moduladora">
+          </div>
+          <div class="form-group">
+            <label for="indice">Indice de modulación</label>
+            <input autocomplete="off" type="text" class="form-control" id="i-AM" placeholder="Modulación">
+          </div>
+          <button type="button" class="btn btn-primary" id="btn-AM" data-toggle="modal" data-target="#modalAM">Calcular</button>
+        </form>
+      </div>
+
+      <div class="modal fade" id="modalAM" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">Modulacion AM</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+
+            <div class="modal-body" id="modal-container-content-AM"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="view centered-items" id="modulation-FM-Page">
+      <div class="form">
+        <form class="centered-items">
+          <div class="form-group">
+            <label for="vP">Valor pico señal moduladora</label>
+            <input autocomplete="off" type="text" class="form-control" id="vM-FM" placeholder="Señal moduladora">
+          </div>
+
+          <div class="form-group">
+            <label for="vP">Valor pico señal portadora</label>
+            <input autocomplete="off" type="text" class="form-control" id="vP-FM" placeholder="Señal moduladora">
+          </div>
+
+          <div class="form-group">
+            <label for="fP">Frecuencia señal moduladora</label>
+            <input autocomplete="off" type="text" class="form-control" id="fM-FM" placeholder="Señal moduladora">
+          </div>
+
+          <div class="form-group">
+            <label for="fP">Frecuencia señal portadora</label>
+            <input autocomplete="off" type="text" class="form-control" id="fP-FM" placeholder="Señal moduladora">
+          </div>
+          <div class="form-group">
+            <label for="indice">Indice de modulación</label>
+            <input autocomplete="off" type="text" class="form-control" id="i-FM" placeholder="Modulación">
+          </div>
+          <button type="button" class="btn btn-primary" id="btn-FM" data-toggle="modal" data-target="#modalFM">Calcular</button>
+        </form>
+      </div>
+
+      <div class="modal fade" id="modalFM" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">Modulacion FM</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+
+            <div class="modal-body" id="modal-container-content-FM"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="view centered-items" id="modulation-PM-Page">
+      <h1>Modulacion PM</h1>
+    </section>
+
+  </main>
+  <script src="./js/getElements.js"></script>
+  <script src="./js/util.js"></script>
+  <script src="./js/modulationAM.js"></script>
+  <script src="./js/modulationFM.js"></script>
+  <script src="./js/index.js"></script>
+</body>
+
+</html>

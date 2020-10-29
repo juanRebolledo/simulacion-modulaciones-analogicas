@@ -1,0 +1,28 @@
+.form {
+  border-radius: 5px;
+  font-family: 'Roboto-Medium';
+  height: 90%;
+  overflow: auto;
+  padding: 10px 0;
+  width: 50%;
+}
+
+.form form {
+  height: 100%;
+  margin: auto;
+  width: 70%;
+}
+
+.form form .form-group {
+  width: 100%;
+}
+
+.form form .form-group label {
+  margin-bottom: 0;
+}
+
+@media (max-width: 568px) {
+  .form {
+    width: 100%;
+  }
+}

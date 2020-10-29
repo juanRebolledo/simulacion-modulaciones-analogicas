@@ -1,0 +1,86 @@
+@import './fonts.css';
+@import './form.css';
+@import './tables.css';
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body.app {
+  font-family: 'Roboto-Bold';
+  height: 100vh;
+  width: 100vw;
+}
+
+header, main, nav, .view {
+  width: 100%;
+}
+
+.container-routes, .form {
+  box-shadow: 0 0 0.25rem 0 #ced4da;
+}
+
+nav {
+  height: 45px;
+}
+
+.app header {
+  height: 49px;
+  box-shadow: 0 0 0.25rem 0 #ced4da;
+}
+
+.app header h1 {
+  color: #003049;
+  font-size: 1em;
+  margin: 0;
+}
+
+.app main {
+  height: calc(100% - 49px);
+  padding: 10px;
+}
+
+.app main nav .container-routes { 
+  border-radius: 5px;
+  display: flex;
+  justify-content: space-evenly;
+  margin: 0;
+  width: 60%;
+}
+
+.container-routes .active {
+  background: var(--primary);
+}
+
+.app main nav .container-routes .active span {
+  color: #fff;
+}
+
+.app main nav .container-routes .item-route {
+  cursor: pointer;
+  color: var(--primary);
+  height: 35px;
+  font-size: 0.8em;
+  list-style: none;
+  transition: height ease 0.3s;
+  width: calc(100% / 3);
+}
+
+.centered-items {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.view {
+  flex-direction: column;
+  height: calc(100% - 45px);
+}
+
+@media (max-width: 568px) {
+  .app main nav .container-routes {
+    width: 100%;
+  }
+}

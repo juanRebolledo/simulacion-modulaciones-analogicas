@@ -1,0 +1,6 @@
+const containerAmTarget = document.getElementById('modulation-AM-Page')
+const containerFmTarget = document.getElementById('modulation-FM-Page')
+const containerPmTarget = document.getElementById('modulation-PM-Page')
+const itemRouteAmTarget = document.getElementById('item-route-am')
+const itemRouteFmTarget = document.getElementById('item-route-fm')
+const itemRoutePmTarget = document.getElementById('item-route-pm')
