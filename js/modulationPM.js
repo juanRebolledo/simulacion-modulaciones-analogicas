@@ -1,41 +1,25 @@
 const btnPm = document.getElementById('btn-PM')
 const contentModalPM = document.getElementById('modal-container-content-PM')
 
-const getValuesFromDomPM = () => {
-  const desvF = parseFloat(document.getElementById('desvF-PM').value)
-  const frecuenciaMod = parseFloat(document.getElementById('fM-PM').value)
-  const frecuenciaPort = parseFloat(document.getElementById('fP-PM').value)
-  const valorPicoMod = parseFloat(document.getElementById('vM-PM').value)
-  const valorPicoPort = parseFloat(document.getElementById('vP-PM').value)
+const handlerValuesPM = () => {
+  const { 
+    desvF, 
+    frecuenciaMod, 
+    frecuenciaPort, 
+    valorPicoMod, 
+    valorPicoPort
+  } = getElementByIdFromDOM(arrIDPM, arrKeysPM, 'value')
 
-  if (isNaN(desvF) || isNaN(frecuenciaMod) || isNaN(frecuenciaPort) || isNaN(valorPicoMod) || isNaN(frecuenciaPort)) {
-    contentModalPM.innerHTML = "<h3>Ingresa valores correctos</h3>"
+  if (isNaN(desvF) || desvF || isNaN(frecuenciaMod) || frecuenciaMod || isNaN(frecuenciaPort) || frecuenciaPort || isNaN(valorPicoMod) || valorPicoMod || isNaN(valorPicoPort) || valorPicoPort) {
+    contentModalPM.innerHTML = "<h3>Verifica los datos ingresados</h3>"
     return false
   }
 
   return { desvF, frecuenciaMod, frecuenciaPort, valorPicoMod, valorPicoPort }
 }
 
-const putCavansInHTMLPM = () => {
-  contentModalPM.innerHTML = `
-    <div class="container-tables">
-      <div class="container-table">
-        <canvas id="tableMod-PM" width="800" height="350"></canvas>
-      </div>
-        
-      <div class="container-table">
-        <canvas id="tablePort-PM" width="800" height="350"></canvas>
-      </div>
-
-      <div class="container-table">
-        <canvas id="table-PM" width="800" height="350"></canvas>
-      </div>
-    </div>
-  `
-}
-
 btnPm.addEventListener('click', function () {
-  const results = getValuesFromDomPM()
+  const results = handlerValuesPM()
   if (results) {
     const { desvF, frecuenciaMod, frecuenciaPort, valorPicoMod, valorPicoPort } = results
 
@@ -52,11 +36,11 @@ btnPm.addEventListener('click', function () {
       resultadosSeñalPortadora.push(calcularSeñalPortadora(valorPicoPort, frecuenciaPort, tiempo))
     })
 
-    putCavansInHTMLPM()
+    putCavansSignalInHTML(contentModalPM, 'PM')
 
-    const canvaSeñalPM = document.getElementById('table-PM').getContext('2d');
-    const canvaSeñalPortadoraPM = document.getElementById('tablePort-PM').getContext('2d');
-    const canvaSeñalModuladoraPM = document.getElementById('tableMod-PM').getContext('2d');
+    const { 
+      canvaSeñalPM, canvaSeñalPortadoraPM, canvaSeñalModuladoraPM 
+    } = getElementByIdFromDOM(arrIDCanvaPM, arrKeysCanvaPM, 'getContext', '2d')
 
     const tablaPm = createTable(canvaSeñalPM, resultadosFM, 'Modulación PM', tiempos)
     const tablaPort = createTable(canvaSeñalPortadoraPM, resultadosSeñalPortadora, 'Señal Portadora', tiempos)

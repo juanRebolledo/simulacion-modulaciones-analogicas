@@ -2,36 +2,20 @@ const btnFm = document.getElementById('btn-FM')
 const contentModalFM = document.getElementById('modal-container-content-FM')
 
 const getValuesFromDomFM = () => {
-  const valorPicoMod = parseFloat(document.getElementById('vM-FM').value)
-  const frecuenciaMod = parseFloat(document.getElementById('fM-FM').value)
-  const valorPicoPort = parseFloat(document.getElementById('vP-FM').value)
-  const frecuenciaPort = parseFloat(document.getElementById('fP-FM').value)
-  const indiceMod = parseFloat(document.getElementById('i-FM').value)
-
-  if (isNaN(valorPicoMod) || isNaN(frecuenciaMod) || isNaN(indiceMod) || isNaN(valorPicoPort) || isNaN(frecuenciaPort)) {
+  const { 
+    frecuenciaMod, 
+    frecuenciaPort, 
+    indiceMod, 
+    valorPicoMod, 
+    valorPicoPort 
+  } = getElementByIdFromDOM(arrIDFM, arrKeysFM, 'value')
+  
+  if (isNaN(frecuenciaMod) || !frecuenciaMod || isNaN(frecuenciaPort) || !frecuenciaPort || isNaN(indiceMod) || !indiceMod || isNaN(valorPicoMod) || !valorPicoMod || isNaN(frecuenciaPort) || !frecuenciaPort) {
     contentModalFM.innerHTML = "<h3>Ingresa valores correctos</h3>"
     return false
   }
 
   return { valorPicoMod, frecuenciaMod, indiceMod, valorPicoPort, frecuenciaPort}
-}
-
-const putCavansInHTMLFM = () => {
-  contentModalFM.innerHTML = `
-    <div class="container-tables">
-      <div class="container-table">
-        <canvas id="tableMod-FM" width="800" height="350"></canvas>
-      </div>
-        
-      <div class="container-table">
-        <canvas id="tablePort-FM" width="800" height="350"></canvas>
-      </div>
-
-      <div class="container-table">
-        <canvas id="tableFM" width="800" height="350"></canvas>
-      </div>
-    </div>
-  `
 }
 
 btnFm.addEventListener('click', function () {
@@ -52,11 +36,11 @@ btnFm.addEventListener('click', function () {
       resultadosSeñalPortadora.push(calcularSeñalPortadora(valorPicoPort, frecuenciaPort, tiempo))
     })
 
-    putCavansInHTMLFM()
+    putCavansSignalInHTML(contentModalFM, 'FM')
 
-    const canvaSeñalFM = document.getElementById('tableFM').getContext('2d');
-    const canvaSeñalPortadoraFM = document.getElementById('tablePort-FM').getContext('2d');
-    const canvaSeñalModuladoraFM = document.getElementById('tableMod-FM').getContext('2d');
+    const { 
+      canvaSeñalFM, canvaSeñalPortadoraFM, canvaSeñalModuladoraFM 
+    } = getElementByIdFromDOM(arrIDCanvaFM, arrKeysCanvaFM, 'getContext', '2d')
 
     const tablaFm = createTable(canvaSeñalFM, resultadosFM, 'Modulación FM', tiempos)
     const tablaPort = createTable(canvaSeñalPortadoraFM, resultadosSeñalPortadora, 'Señal Portadora', tiempos)
