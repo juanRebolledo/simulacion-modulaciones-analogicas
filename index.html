@@ -47,7 +47,8 @@
             <label for="indice">Indice de modulación</label>
             <input autocomplete="off" type="text" class="form-control" id="i-AM" placeholder="Modulación">
           </div>
-          <button type="button" class="btn btn-primary" id="btn-AM" data-toggle="modal" data-target="#modalAM">Calcular</button>
+          <button type="button" class="btn btn-primary" id="btn-AM" data-toggle="modal"
+            data-target="#modalAM">Calcular</button>
         </form>
       </div>
 
@@ -93,7 +94,8 @@
             <label for="indice">Indice de modulación</label>
             <input autocomplete="off" type="text" class="form-control" id="i-FM" placeholder="Modulación">
           </div>
-          <button type="button" class="btn btn-primary" id="btn-FM" data-toggle="modal" data-target="#modalFM">Calcular</button>
+          <button type="button" class="btn btn-primary" id="btn-FM" data-toggle="modal"
+            data-target="#modalFM">Calcular</button>
         </form>
       </div>
 
@@ -114,7 +116,50 @@
     </section>
 
     <section class="view centered-items" id="modulation-PM-Page">
-      <h1>Modulacion PM</h1>
+      <div class="form">
+        <form class="centered-items">
+          <div class="form-group">
+            <label for="vP">Valor pico señal moduladora</label>
+            <input autocomplete="off" type="text" class="form-control" id="vM-PM" placeholder="Señal moduladora">
+          </div>
+
+          <div class="form-group">
+            <label for="vP">Valor pico señal portadora</label>
+            <input autocomplete="off" type="text" class="form-control" id="vP-PM" placeholder="Señal moduladora">
+          </div>
+
+          <div class="form-group">
+            <label for="fP">Frecuencia señal moduladora</label>
+            <input autocomplete="off" type="text" class="form-control" id="fM-PM" placeholder="Señal moduladora">
+          </div>
+
+          <div class="form-group">
+            <label for="fP">Frecuencia señal portadora</label>
+            <input autocomplete="off" type="text" class="form-control" id="fP-PM" placeholder="Señal moduladora">
+          </div>
+          <div class="form-group">
+            <label for="desvF">Desviación de fase ∆p</label>
+            <input autocomplete="off" type="text" class="form-control" id="desvF-PM" placeholder="∆p">
+          </div>
+          <button type="button" class="btn btn-primary" id="btn-PM" data-toggle="modal"
+            data-target="#modalPM">Calcular</button>
+        </form>
+      </div>
+
+      <div class="modal fade" id="modalPM" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">Modulacion PM</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+
+            <div class="modal-body" id="modal-container-content-PM"></div>
+          </div>
+        </div>
+      </div>
     </section>
 
   </main>
@@ -122,6 +167,7 @@
   <script src="./js/util.js"></script>
   <script src="./js/modulationAM.js"></script>
   <script src="./js/modulationFM.js"></script>
+  <script src="./js/modulationPM.js"></script>
   <script src="./js/index.js"></script>
 </body>
 
