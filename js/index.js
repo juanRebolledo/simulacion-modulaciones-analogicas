@@ -1,3 +1,12 @@
+const {
+  containerAmTarget,
+  containerFmTarget,
+  containerPmTarget,
+  itemRouteAmTarget,
+  itemRouteFmTarget,
+  itemRoutePmTarget
+} = getElementByIdFromDOM(arrIdElements, arrKeysElements)
+
 containerFmTarget.style.display='none'
 containerPmTarget.style.display='none'
 
@@ -16,13 +25,11 @@ const handlerViews = (pageToView, fPageToHide, sPageToHide) => {
 itemRouteAmTarget.addEventListener( 'click', () => {
   handlerClassLists(itemRouteAmTarget, itemRouteFmTarget, itemRoutePmTarget)
   handlerViews(containerAmTarget, containerFmTarget, containerPmTarget)
-
 })
 
 itemRouteFmTarget.addEventListener('click', () => {
   handlerClassLists(itemRouteFmTarget, itemRoutePmTarget, itemRouteAmTarget)
   handlerViews(containerFmTarget, containerAmTarget, containerPmTarget)
-  
 })
 
 itemRoutePmTarget.addEventListener('click', () => {
