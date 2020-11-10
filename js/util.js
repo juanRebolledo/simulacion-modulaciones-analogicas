@@ -31,6 +31,11 @@ function calcularSeñalModuladaFM(vP, fP, t, i, fM) {
   return vP * Math.sin((twoPI * fP * t) + (i * Math.cos(twoPI * fM * t)))
 }
 
+function calcularSeñarModuladaPM(desvF, fM, fP, t, vM, vP) {
+  // vP * cos ((2PI * fP * t) + (desviacionFase * vM) * sin(2PI * fM * t))
+  return vP * Math.cos((twoPI * fP * t) + (desvF * vM) * Math.sin(twoPI * fM * t))
+}
+
 const createTable = (canva, data, label, labels) => new Chart(canva, {
   type: 'line',
   data: {
