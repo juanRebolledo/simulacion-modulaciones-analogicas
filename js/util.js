@@ -49,3 +49,22 @@ const createTable = (canva, data, label, labels) => new Chart(canva, {
   },
   options: options
 })
+
+
+function putCavansSignalInHTML(canva, canvaSignal) {
+  canva.innerHTML = `
+    <div class="container-tables">
+      <div class="container-table">
+        <canvas id="tableMod-${canvaSignal}" width="800" height="350"></canvas>
+      </div>
+        
+      <div class="container-table">
+        <canvas id="tablePort-${canvaSignal}" width="800" height="350"></canvas>
+      </div>
+
+      <div class="container-table">
+        <canvas id="table-${canvaSignal}" width="800" height="350"></canvas>
+      </div>
+    </div>
+  `
+}
