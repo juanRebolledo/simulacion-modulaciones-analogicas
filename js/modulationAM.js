@@ -1,20 +1,11 @@
 const btnAm = document.getElementById('btn-AM')
 const contentModalAM = document.getElementById('modal-container-content-AM')
 
-const getValuesFromDom = () => {
-  const { frecuenciaMod, indiceMod, valorPicoMod } = getElementByIdFromDOM(arrIDAM, arrKeysAM, 'value')
-  if (isNaN(valorPicoMod) || !valorPicoMod || isNaN(frecuenciaMod) || !frecuenciaMod || isNaN(indiceMod) || !indiceMod) {
-    contentModalAM.innerHTML = "<h3>Ingresa valores correctos</h3>"
-    return false
-  }
-
-  return { valorPicoMod, frecuenciaMod, indiceMod }
-}
-
 btnAm.addEventListener('click', function () {
-  const results = getValuesFromDom()
-  if (results) {
-    const { valorPicoMod, frecuenciaMod, indiceMod } = results
+  const values = handlerValues(arrIDAM, arrKeysAM, contentModalAM, 'value')
+
+  if (values) {
+    const { valorPicoMod, frecuenciaMod, indiceMod } = values
 
     const frecuenciaPort = frecuenciaMod * 10
     const periodoTiempoMod = 1 / frecuenciaMod

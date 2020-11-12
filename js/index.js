@@ -10,18 +10,6 @@ const {
 containerFmTarget.style.display='none'
 containerPmTarget.style.display='none'
 
-const handlerClassLists = (targetToAdd, fTargetToDelete, sTargetToDelete) => {
-  fTargetToDelete.classList.remove('active')
-  sTargetToDelete.classList.remove('active')
-  targetToAdd.classList.add('active')
-}
-
-const handlerViews = (pageToView, fPageToHide, sPageToHide) => {
-  fPageToHide.style.display = 'none'
-  pageToView.style.display = 'flex'
-  sPageToHide.style.display = 'none'
-}
-
 itemRouteAmTarget.addEventListener( 'click', () => {
   handlerClassLists(itemRouteAmTarget, itemRouteFmTarget, itemRoutePmTarget)
   handlerViews(containerAmTarget, containerFmTarget, containerPmTarget)

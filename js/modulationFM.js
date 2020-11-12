@@ -1,27 +1,11 @@
 const btnFm = document.getElementById('btn-FM')
 const contentModalFM = document.getElementById('modal-container-content-FM')
 
-const getValuesFromDomFM = () => {
-  const { 
-    frecuenciaMod, 
-    frecuenciaPort, 
-    indiceMod, 
-    valorPicoMod, 
-    valorPicoPort 
-  } = getElementByIdFromDOM(arrIDFM, arrKeysFM, 'value')
-  
-  if (isNaN(frecuenciaMod) || !frecuenciaMod || isNaN(frecuenciaPort) || !frecuenciaPort || isNaN(indiceMod) || !indiceMod || isNaN(valorPicoMod) || !valorPicoMod || isNaN(frecuenciaPort) || !frecuenciaPort) {
-    contentModalFM.innerHTML = "<h3>Ingresa valores correctos</h3>"
-    return false
-  }
-
-  return { valorPicoMod, frecuenciaMod, indiceMod, valorPicoPort, frecuenciaPort}
-}
-
 btnFm.addEventListener('click', function () {
-  const results = getValuesFromDomFM()
-  if (results) {
-    const { valorPicoMod, frecuenciaMod, indiceMod, valorPicoPort, frecuenciaPort } = results
+  const values = handlerValues(arrIDFM, arrKeysFM, contentModalFM, 'value')
+
+  if (values) {
+    const { valorPicoMod, frecuenciaMod, indiceMod, valorPicoPort, frecuenciaPort } = values
 
     let tiempos = []
     for (let i = 0; i < 1; i = i + 0.0025) tiempos.push(+i.toFixed(12))
