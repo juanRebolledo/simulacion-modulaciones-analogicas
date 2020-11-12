@@ -18,7 +18,6 @@ function calcularSeñalPortadora(valorPico, frecuencia, tiempo) {
   return valorPico * sinOfTwoPIFrTi(frecuencia, tiempo)
 }
 
-// // Señal Moduladora
 function calcularSeñalModuladora(vM, fM, t) {
   return vM * sinOfTwoPIFrTi(fM, t)
 }
@@ -32,7 +31,6 @@ function calcularSeñalModuladaFM(vP, fP, t, i, fM) {
 }
 
 function calcularSeñarModuladaPM(desvF, fM, fP, t, vM, vP) {
-  // vP * cos ((2PI * fP * t) + (desviacionFase * vM) * sin(2PI * fM * t))
   return vP * Math.cos((twoPI * fP * t) + (desvF * vM) * Math.sin(twoPI * fM * t))
 }
 
