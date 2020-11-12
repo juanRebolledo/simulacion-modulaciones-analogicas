@@ -9,8 +9,7 @@ const handlerValuesPM = () => {
     valorPicoMod, 
     valorPicoPort
   } = getElementByIdFromDOM(arrIDPM, arrKeysPM, 'value')
-
-  if (isNaN(desvF) || desvF || isNaN(frecuenciaMod) || frecuenciaMod || isNaN(frecuenciaPort) || frecuenciaPort || isNaN(valorPicoMod) || valorPicoMod || isNaN(valorPicoPort) || valorPicoPort) {
+  if (isNaN(desvF) || !desvF || isNaN(frecuenciaMod) || !frecuenciaMod || isNaN(frecuenciaPort) || !frecuenciaPort || isNaN(valorPicoMod) || !valorPicoMod || isNaN(valorPicoPort) || !valorPicoPort) {
     contentModalPM.innerHTML = "<h3>Verifica los datos ingresados</h3>"
     return false
   }
